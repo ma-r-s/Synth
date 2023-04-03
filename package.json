@@ -1,5 +1,5 @@
 {
-	"name": "skeleton",
+	"name": "synth",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -23,5 +23,9 @@
 		"tailwindcss": "^3.2.4",
 		"vite": "^4.0.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"daisyui": "^2.51.5",
+		"pocketbase": "^0.13.1"
+	}
 }
