@@ -7,12 +7,18 @@ export const actions = {
 	default: async ({ cookies, request }) => {
 		const data = await request.formData();
 		try {
-			const record = await pb.collection('users').create(data);
-			console.log(record);
+			const authData = await pb
+				.collection('users')
+				.authWithPassword(data.get('user'), data.get('password'));
+
+			console.log(pb.authStore.isValid);
+			console.log(pb.authStore.token);
+			console.log(pb.authStore.model.id);
 		} catch (error) {
 			console.log(error);
-			return error.response.data;
+			console.log(error.response);
+			return error.response;
 		}
-		throw redirect(303, '/');
+		throw redirect(303, '/dashboard');
 	}
 };
